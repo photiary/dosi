@@ -11,13 +11,14 @@ import { Users, Home, Palette, MapPin, Mail, Phone, Facebook, Instagram } from '
 // 샘플 새소식 데이터
 const newsData = [
   {
-    title: '걷고 싶은 도시 만들기 시민연대 정기총회',
-    subtitle: '2024년 활동 보고 및 2025년 계획 수립',
-    location: '서울시청 시민청',
-    period: '2024.12.15 (일) 14:00-17:00',
+    title: '"역삼에서 만나요" 공개공지 유람단',
+    subtitle: '<공개공지 유람단>을 모집합니다🙋‍♀️!🚩',
+    location: '서울시 역삼역',
+    period: '2025.9.25 (목) 신청마감',
     description:
-      '도시연대의 2024년 활동을 돌아보고, 2025년 새로운 비전과 계획을 함께 세워가는 자리입니다. 시민 여러분의 많은 참여를 바랍니다.',
-    thumbnail: '/placeholder.svg',
+      '지난 6월 진행된 <도시연대의 도시산책: 공개공지>에 이어, 도시연대와 예술하는모양이 함께하는 건축×조경×예술 투어〈공개공지 유람단〉을 시작합니다.',
+    thumbnail: 'https://img2.stibee.com/3418_2987290_1757311316140156849.png',
+    link: 'https://stibee.com/api/v1.0/emails/share/w1spUm4Z_4uvT9HJkxtHsUYYGeay4nc',
   },
   {
     title: '보행권 확보 캠페인 - 안전한 보행로 만들기',
@@ -178,6 +179,7 @@ export default function Page() {
                 period={news.period}
                 description={news.description}
                 thumbnail={news.thumbnail}
+                link={news.link}
                 onViewDetails={() => console.log('상세보기 클릭:', news.title)}
               />
             ))}

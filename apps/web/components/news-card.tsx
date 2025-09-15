@@ -10,6 +10,7 @@ interface NewsCardProps {
   period: string
   description: string
   thumbnail: string
+  link?: string
   onViewDetails: () => void
 }
 
@@ -20,6 +21,7 @@ export function NewsCard({
   period,
   description,
   thumbnail,
+  link,
   onViewDetails
 }: NewsCardProps) {
   return (
@@ -57,7 +59,13 @@ export function NewsCard({
         <Button 
           variant="outline" 
           size="sm" 
-          onClick={onViewDetails}
+          onClick={() => {
+            if (link) {
+              window.open(link, '_blank')
+            } else {
+              onViewDetails()
+            }
+          }}
           className="w-full"
         >
           상세보기
