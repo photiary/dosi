@@ -34,7 +34,7 @@ pnpm build
 
 배포가 완료되면 다음 URL에서 웹사이트에 접근할 수 있습니다:
 
-- `https://[사용자명].github.io/dosi`
+- `https://photiary.github.io/dosi`
 
 ## 주의사항
 
