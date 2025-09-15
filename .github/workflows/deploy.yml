@@ -1,24 +1,22 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
+    needs: build
     
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4
       
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        cache: 'npm'
         
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
@@ -28,17 +26,10 @@ jobs:
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
       
-    - name: Build project
+    - name: Build
       run: pnpm build
-      working-directory: apps/web
       
-    - name: Add .nojekyll file
-      run: touch apps/web/out/.nojekyll
-      
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./apps/web/out
-        cname: # 도메인이 있다면 여기에 입력
+    # 여기에 실제 배포 로직을 추가하세요
+    # 예: Vercel, Netlify, AWS S3 등
+    - name: Deploy
+      run: echo "Deploy step - 실제 배포 로직을 여기에 추가하세요"
