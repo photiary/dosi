@@ -1,10 +1,27 @@
+'use client'
+
 import { Button } from '@workspace/ui/components/button.tsx'
 import { Separator } from '@workspace/ui/components/separator.tsx'
 import { SidebarTrigger } from '@workspace/ui/components/sidebar.tsx'
+import { useScroll } from '../../hooks/use-scroll'
 
 export function SiteHeader() {
+  const { isScrolled } = useScroll()
+
   return (
-    <header className="h-(--header-height) group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) flex shrink-0 items-center gap-2 border-b transition-[width,height] ease-linear">
+    <header 
+      className={`
+        fixed top-0 left-0 right-0 z-50
+        h-(--header-height) 
+        group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height) 
+        flex shrink-0 items-center gap-2 
+        transition-all duration-300 ease-in-out
+        ${isScrolled 
+          ? 'glass-effect backdrop-blur-md bg-background/80 border-b border-border/50 shadow-lg' 
+          : 'bg-background border-b border-border'
+        }
+      `}
+    >
       <div className="flex w-full items-center gap-1 px-4 lg:gap-2 lg:px-6">
         <SidebarTrigger className="-ml-1" />
         <Separator orientation="vertical" className="mx-2 data-[orientation=vertical]:h-4" />
