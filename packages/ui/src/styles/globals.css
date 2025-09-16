@@ -121,6 +121,7 @@
     * {
         @apply border-border outline-ring/50;
     }
+
     body {
         @apply bg-background text-foreground;
     }
@@ -196,47 +197,24 @@
     .glass-effect {
         backdrop-filter: blur(20px) saturate(200%);
         -webkit-backdrop-filter: blur(20px) saturate(200%);
-        background: rgba(255, 255, 255, 0.5);
-        border: 1px solid rgba(255, 255, 255, 0.7);
-        box-shadow:
-                0 8px 32px 0 rgba(31, 38, 135, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.4),
-                0 0 0 1px rgba(255, 255, 255, 0.4);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
     .glass-effect:hover {
         backdrop-filter: blur(25px) saturate(250%);
         -webkit-backdrop-filter: blur(25px) saturate(250%);
-        background: rgba(255, 255, 255, 0.65);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        box-shadow:
-                0 20px 40px 0 rgba(31, 38, 135, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.5);
-    }
-
-    /* 다크 모드용 유리 질감 */
-    .dark .glass-effect {
-        background: rgba(0, 0, 0, 0.6);
-        border: 1px solid rgba(255, 255, 255, 0.4);
-        box-shadow:
-                0 8px 32px 0 rgba(0, 0, 0, 0.7),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.2);
-    }
-
-    .dark .glass-effect:hover {
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(255, 255, 255, 0.5);
-        box-shadow:
-                0 20px 40px 0 rgba(0, 0, 0, 0.8),
-                inset 0 1px 0 rgba(255, 255, 255, 0.5),
-                inset 0 -1px 0 rgba(255, 255, 255, 0.25),
-                0 0 0 1px rgba(255, 255, 255, 0.25);
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 40px 0 rgba(31, 38, 135, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* 카드 높이 균등화 */
@@ -271,5 +249,14 @@
         -webkit-box-orient: vertical;
         line-height: 1.5;
         margin-bottom: 1rem; /* 버튼과의 간격 */
+        padding-top: 0.5rem; /* 상단 패딩 */
+    }
+
+    .card-location-info {
+        padding-top: 0.5rem; /* 위치/기간 정보 상단 패딩 */
+    }
+
+    .card-button {
+        padding-top: 0.5rem; /* 버튼 상단 패딩 */
     }
 }
