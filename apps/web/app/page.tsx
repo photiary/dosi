@@ -9,6 +9,11 @@ import { useEffect, useRef, useState } from 'react'
 import { animate } from 'animejs'
 import { Users, Home, Palette, MapPin, Mail, Phone, Facebook, Instagram } from 'lucide-react'
 
+// 정적 자산 경로를 올바르게 처리하는 유틸리티 함수
+const getAssetPath = (path: string) => {
+  return process.env.NODE_ENV === 'production' ? `/dosi${path}` : path
+}
+
 // 샘플 새소식 데이터
 const newsData = [
   {
@@ -20,7 +25,7 @@ const newsData = [
       '지난 6월 진행된 <도시연대의 도시산책: 공개공지>에 이어, 도시연대와 예술하는모양이 함께하는 건축×조경×예술 투어〈공개공지 유람단〉을 시작합니다.',
     thumbnail: 'https://img2.stibee.com/3418_2987290_1757311316140156849.png',
     link: 'https://stibee.com/api/v1.0/emails/share/w1spUm4Z_4uvT9HJkxtHsUYYGeay4nc',
-    backgroundPattern: '/patterns/card-bg-1.svg',
+    backgroundPattern: getAssetPath('/patterns/card-bg-1.svg'),
   },
   {
     title: '보행권 확보 캠페인 - 안전한 보행로 만들기',
@@ -29,8 +34,8 @@ const newsData = [
     period: '2024.12.20 (금) 10:00-16:00',
     description:
       '자동차 중심의 도로를 사람 중심의 보행로로 바꾸는 캠페인입니다. 현장 조사와 시민 의견 수렴을 통해 구체적인 개선안을 제시합니다.',
-    thumbnail: '/placeholder.svg',
-    backgroundPattern: '/patterns/card-bg-2.svg',
+    thumbnail: getAssetPath('/placeholder.svg'),
+    backgroundPattern: getAssetPath('/patterns/card-bg-2.svg'),
   },
   {
     title: '마을만들기 워크숍 - 우리 동네 이야기',
@@ -39,8 +44,8 @@ const newsData = [
     period: '2024.12.22 (일) 13:00-18:00',
     description:
       '우리가 살고 있는 마을의 역사와 문화를 되돌아보고, 앞으로 어떤 마을을 만들어갈지 함께 고민하는 시간입니다.',
-    thumbnail: '/placeholder.svg',
-    backgroundPattern: '/patterns/card-bg-3.svg',
+    thumbnail: getAssetPath('/placeholder.svg'),
+    backgroundPattern: getAssetPath('/patterns/card-bg-3.svg'),
   },
 ]
 
@@ -191,7 +196,7 @@ export default function Page() {
         id="news"
         className="relative overflow-hidden bg-gray-50/50 py-12"
         style={{
-          backgroundImage: 'url(/pattern-diagonal.svg)',
+          backgroundImage: `url(${getAssetPath('/pattern-diagonal.svg')})`,
           backgroundSize: '20px 20px',
           backgroundRepeat: 'repeat',
         }}
