@@ -1,10 +1,10 @@
 'use client'
 
 import { Button } from '@workspace/ui/components/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@workspace/ui/components/card'
 import { Separator } from '@workspace/ui/components/separator'
 import { NewsCard } from '@/components/news-card'
 import { SkeletonCard } from '@/components/skeleton-card'
+import { ActivityCard } from '@/components/activity-card'
 import { useEffect, useRef, useState } from 'react'
 import { animate } from 'animejs'
 import { Users, Home, Palette, MapPin, Mail, Phone, Facebook, Instagram } from 'lucide-react'
@@ -292,73 +292,32 @@ export default function Page() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-3">
-            <div className="relative">
-              <div className="absolute left-0 top-0 z-10 font-mono text-xs text-gray-500">
-                hover:shadow-xl hover:-translate-y-1
-              </div>
-              <Card className="group rounded-2xl bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <CardHeader>
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-100">
-                    <Users className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <CardTitle className="text-xl text-gray-900">보행권 확보 운동</CardTitle>
-                  <CardDescription className="text-base text-gray-600">
-                    인간이 중심이 되는 도시를 만들기 위한 보행권 확보 운동
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">
-                    자동차 중심의 도시에서 사람 중심의 도시로 변화시키기 위한 보행환경 개선과 보행권 확보를 위한 다양한
-                    활동을 전개합니다.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="relative">
-              <div className="absolute left-0 top-0 z-10 font-mono text-xs text-gray-500">
-                bg-white rounded-2xl shadow-lg
-              </div>
-              <Card className="group rounded-2xl bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <CardHeader>
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                    <Home className="h-8 w-8 text-green-600" />
-                  </div>
-                  <CardTitle className="text-xl text-gray-900">마을만들기 운동</CardTitle>
-                  <CardDescription className="text-base text-gray-600">
-                    주민이 주체가 되어 살기 좋은 마을을 만드는 운동
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">
-                    지역사회에 밀착한 현장운동으로 주민들이 직접 참여하여 자신이 살고 있는 마을을 더 살기 좋은 곳으로
-                    만들어갑니다.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="relative">
-              <div className="absolute left-0 top-0 z-10 font-mono text-xs text-gray-500">
-                transition-all duration-300
-              </div>
-              <Card className="group rounded-2xl bg-white p-8 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <CardHeader>
-                  <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
-                    <Palette className="h-8 w-8 text-purple-600" />
-                  </div>
-                  <CardTitle className="text-xl text-gray-900">생활문화 운동</CardTitle>
-                  <CardDescription className="text-base text-gray-600">
-                    사람들의 삶을 소중히 생각하는 생활문화 운동
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-600">
-                    도시에서 살아가는 사람들의 일상과 문화를 존중하고, 삶의 질을 높이는 다양한 문화 활동을 지원합니다.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+            <ActivityCard
+              icon={Users}
+              iconColor="text-blue-600"
+              iconBgColor="bg-blue-100"
+              title="보행권 확보 운동"
+              description="인간이 중심이 되는 도시를 만들기 위한 보행권 확보 운동"
+              content="자동차 중심의 도시에서 사람 중심의 도시로 변화시키기 위한 보행환경 개선과 보행권 확보를 위한 다양한 활동을 전개합니다."
+            />
+            
+            <ActivityCard
+              icon={Home}
+              iconColor="text-green-600"
+              iconBgColor="bg-green-100"
+              title="마을만들기 운동"
+              description="주민이 주체가 되어 살기 좋은 마을을 만드는 운동"
+              content="지역사회에 밀착한 현장운동으로 주민들이 직접 참여하여 자신이 살고 있는 마을을 더 살기 좋은 곳으로 만들어갑니다."
+            />
+            
+            <ActivityCard
+              icon={Palette}
+              iconColor="text-purple-600"
+              iconBgColor="bg-purple-100"
+              title="생활문화 운동"
+              description="사람들의 삶을 소중히 생각하는 생활문화 운동"
+              content="도시에서 살아가는 사람들의 일상과 문화를 존중하고, 삶의 질을 높이는 다양한 문화 활동을 지원합니다."
+            />
           </div>
         </div>
       </section>
