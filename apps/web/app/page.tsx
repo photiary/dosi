@@ -5,6 +5,7 @@ import { Separator } from '@workspace/ui/components/separator'
 import { NewsCard } from '@/components/news-card'
 import { SkeletonCard } from '@/components/skeleton-card'
 import { ActivityCard } from '@/components/activity-card'
+import { InstagramSection } from '@/components/instagram-embed'
 import { useEffect, useRef, useState } from 'react'
 import { animate } from 'animejs'
 import { Users, Home, Palette, MapPin, Mail, Phone, Facebook, Instagram } from 'lucide-react'
@@ -42,6 +43,14 @@ const newsData = [
     thumbnail: './placeholder.svg',
     backgroundPattern: './patterns/card-bg-3.svg',
   },
+]
+
+// 인스타그램 포스트 URL 데이터
+// 실제 사용 시 도시연대(@urbanactionnetwork)의 실제 포스트 URL로 교체 필요
+const instagramPosts = [
+  'https://www.instagram.com/p/DOnkObxkTQI/?img_index=1', // 실제 포스트 URL로 교체 필요
+  'https://www.instagram.com/p/DOmxqzPCNRF/', // 실제 포스트 URL로 교체 필요
+  'https://www.instagram.com/p/DOVD0SMD7Ua/?img_index=1', // 실제 포스트 URL로 교체 필요
 ]
 
 export default function Page() {
@@ -134,6 +143,9 @@ export default function Page() {
               </a>
               <a href="#activities" className="font-medium text-gray-600 transition-colors hover:text-gray-900">
                 활동소개
+              </a>
+              <a href="#instagram" className="font-medium text-gray-600 transition-colors hover:text-gray-900">
+                인스타그램
               </a>
               <a href="#support" className="font-medium text-gray-600 transition-colors hover:text-gray-900">
                 도시연대후원하기
@@ -300,7 +312,7 @@ export default function Page() {
               content="자동차 중심의 도시에서 사람 중심의 도시로 변화시키기 위한 보행환경 개선과 보행권 확보를 위한 다양한 활동을 전개합니다."
               onClick={() => console.log('보행권 확보 운동 클릭')}
             />
-            
+
             <ActivityCard
               icon={Home}
               variant="coral"
@@ -309,7 +321,7 @@ export default function Page() {
               content="지역사회에 밀착한 현장운동으로 주민들이 직접 참여하여 자신이 살고 있는 마을을 더 살기 좋은 곳으로 만들어갑니다."
               onClick={() => console.log('마을만들기 운동 클릭')}
             />
-            
+
             <ActivityCard
               icon={Palette}
               variant="default"
@@ -321,6 +333,14 @@ export default function Page() {
           </div>
         </div>
       </section>
+
+      {/* Instagram Section */}
+      <InstagramSection
+        id="instagram"
+        posts={instagramPosts}
+        title="인스타그램"
+        subtitle="도시연대의 최신 소식을 인스타그램에서 확인하세요"
+      />
 
       {/* Support Section */}
       <section id="support" className="bg-gray-50/50 py-20">
@@ -378,6 +398,11 @@ export default function Page() {
                   </a>
                 </li>
                 <li>
+                  <a href="#instagram" className="transition-colors hover:text-blue-600">
+                    인스타그램
+                  </a>
+                </li>
+                <li>
                   <a href="#support" className="transition-colors hover:text-blue-600">
                     후원하기
                   </a>
@@ -408,7 +433,12 @@ export default function Page() {
                   <Facebook className="h-4 w-4" />
                   <span>Facebook</span>
                 </a>
-                <a href="#" className="flex items-center gap-2 text-gray-600 transition-colors hover:text-pink-600">
+                <a
+                  href="https://www.instagram.com/urbanactionnetwork/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-gray-600 transition-colors hover:text-pink-600"
+                >
                   <Instagram className="h-4 w-4" />
                   <span>Instagram</span>
                 </a>
